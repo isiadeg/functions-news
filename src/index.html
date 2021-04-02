@@ -1,13 +1,392 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8">
-  <title>Ss</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<base href="/">
+<meta charset="utf-8">
+<title>News Around The World</title>
+<link href="newsdesign.css" rel="stylesheet" type="text/css">
+<meta name="keyword" content="Nigerian Latest News, World News Sports News, Politics, News Articles, World Events" >
+<meta name="description" content="Browse latest news in different categories from all over the world ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:url"           content="https://functions-news.web.app" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="News From All Over" />
+  <meta property="og:description"   content=" Functions News brings you news from all sources together in one web app" />
+  <meta property="og:image"         content="https://functions-news.web.app/assets/protesters.jpg"  />
+  <meta property="og:image:width"          content="600px" />
+    <meta property="og:image:height"          content="600px" />
+
+
+<link rel="manifest" href="/assets/manifest.json">
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+<link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Cantarell" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Cantarell" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=PT Sans" rel="stylesheet">
+
+<style>
+body{
+
+font-size: 100%;
+margin: 0;
+padding:0;
+outline: 0;
+
+}
+
+td, th{
+ border: 2px solid #bbb;
+ border-collapse: collapse;
+}
+
+td img{
+max-width: 50%;
+height: auto;
+
+}
+th, td{
+ padding: 10px;
+ text-align: center;
+}
+</style>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '344569333015691',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v3.2'
+    });
+  };
+
+  (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+</script>
+
 </head>
+
 <body>
-  <app-root></app-root>
+
+
+<app-root></app-root>
+<script src="/assets/jquery.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.2/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.2/firebase-storage.js"></script><!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.15.2/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.2/firebase-database.js"></script>
+
+
+<script>
+function upload(){
+  console.log("hi");
+}
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAreVO2yAFkq7qemanW4PXL7XRlItD-n2E",
+    authDomain: "functions-web.firebaseapp.com",
+    databaseURL: "https://functions-web.firebaseio.com",
+    projectId: "functions-web",
+    storageBucket: "functions-web.appspot.com",
+    messagingSenderId: "654198018557",
+    appId: "1:654198018557:web:fdeac8b88e8730bb49c994",
+    measurementId: "G-GWEY88WDZC"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+
+function uploadi(){
+var whattouse;
+  firebase.auth().signInWithEmailAndPassword("assidiiq25@gmail.com", "assidiiq").catch(function(error) {
+  // Handle Errors here.
+   console.log(error);
+  // ...
+});
+let user = firebase.auth().currentUser;
+user =user.token;
+console.log(user);
+let myForm = document.getElementById("imagefile").files[0];
+
+  //this.formData.append("name", "image");
+//this.formData.append("file", this.pictures);
+  /*this.http.post("http://localhost:5000/login/picture.js", formData).subscribe((data)=>{console.log(data);
+this.pictureurl=data.filepath;
+console.log(this.pictureurl);
+  },
+(e)=>{console.log(e)}); */
+//File or Blob named moun
+let storageRef = firebase.storage().ref();
+// Create the file metadata
+//var metadata = {
+  //contentType: 'image/jpeg'
+//};
+console.log(myForm.name);
+
+// Upload file and metadata to the object 'images/mountains.jpg'
+//var uploadTask =
+storageRef.child('images/' +Date.now()+"/"+ myForm.name).put(myForm/*, metadata*/).then((data)=>{
+  //res.json("good");
+  console.log(data);
+  storageRef = firebase.storage().ref();
+  storageRef.child('images').listAll().then((res)=>{
+    console.log(res);
+  res.prefixes.forEach((prefix)=>{
+    console.log(prefix)
+    whattouse=prefix.name;
+    });
+    storageRef.child('images'+"/"+whattouse).listAll().then((res)=>{
+      console.log(res);
+    res.items.forEach((item)=>{
+      storageRef.child(item.fullPath).getDownloadURL().then((url)=>{
+      document.getElementById("pictureurl").value=JSON.stringify({
+        id: whattouse,
+        image: url
+      });
+console.log("hi");
+})
+
+    });
+  })
+
+
+});
+});
+
+// Listen for state changes, errors, and completion of the upload.
+/*uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+  function(snapshot) {
+    //hi
+    // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+    var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+    console.log('Upload is ' + progress + '% done');
+    switch (snapshot.state) {
+      case firebase.storage.TaskState.PAUSED: // or 'paused'
+        console.log('Upload is paused');
+        break;
+      case firebase.storage.TaskState.RUNNING: // or 'running'
+        console.log('Upload is running');
+        break;
+    }
+  }, function(error) {
+
+  // A full list of error codes is available at
+  // https://firebase.google.com/docs/storage/web/handle-errors
+  switch (error.code) {
+    case 'storage/unauthorized':
+      // User doesn't have permission to access the object
+      break;
+
+    case 'storage/canceled':
+      // User canceled the upload
+      break;
+
+
+    case 'storage/unknown':
+      // Unknown error occurred, inspect error.serverResponse
+      break;
+  }
+}, function() {
+  // Upload completed successfully, now we can get the download URL
+  uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+    console.log('File available at', downloadURL);
+    return  res.json({"filepath": downloadURL});
+
+  });
+});*/
+
+
+
+}
+
+
+displaysmall=()=>{
+  $('.togglesearch').toggleClass("togglesearch");
+  $('header').find('.fa-search').css("display", "none");
+  $('.togglesearch').toggleClass("togglesearch");
+}
+closesmall=()=>{
+  $('.close').toggleClass("togglesearch");
+    $('.flexdisplay').toggleClass("togglesearch");
+  $('header').find('.fa-search').css("display", "block");
+}
+expand =()=>{
+
+document.getElementById("dropdown-wrapper").style.display="block";
+ document.getElementById("main-news").className += " shift";
+}
+closedropdown=()=>{
+document.getElementById("dropdown-wrapper").style.display="none";
+document.getElementById("main-news").className ="main-news";
+}
+
+
+changeplaceholder=()=>{
+  let determinant = $("#filter").val();
+ console.log(determinant);
+  switch(determinant){
+  case 'date': $("#searchword").attr('type','date');
+  break;
+  case 'keywords':  $("#searchword").attr('placeholder','Enter Your Search Terms');
+$("#searchword").attr('type','text');
+  break;
+  case 'country':  $("#searchword").attr('placeholder','Enter Your Country');
+$("#searchword").attr('type','text');
+  break;
+  default: ;
+  break;
+
+
+  }
+  }
+  $( document ).ready(function() {
+      console.log( "ready!" );
+
+
+})
+expanding=()=>{
+  console.log('clicked');
+ $('.noborder').toggleClass('display');
+ if($('.toright').find('.fa-angle-right').length == 1){
+   $('.toright').html('<i class="fas fa-angle-down" onclick="expanding();"></i>');}else{
+     $('.toright').html(`<i class="fas fa-angle-right" onclick="expanding();"></i>`);
+   }}
+
+//  })
+let storageRef = firebase.storage().ref();
+let imagetable = document.getElementById("imagetable");
+
+const loadimagetable = ()=>{
+  console.log("hi from loadimagetable");
+  var otbody=document.getElementsByTagName('tbody');
+  if(otbody[0]){
+  	document.getElementById("imagetable").removeChild(otbody[0]);
+}
+ list =[];
+
+ storageRef.child('images').listAll().then((res)=>{
+   console.log(res);
+ res.prefixes.forEach((prefix)=>{
+   console.log(prefix)
+   storageRef.child('images'+"/"+prefix.name).listAll().then((res)=>{
+   res.items.forEach((item)=>{
+     list.push(item);
+     console.log(list);
+   });
+   //console.log("hi");
+   listing(list);
+   //resolve(list);
+ });
+});
+
+
+})
+}
+
+const listing = (list)=>{
+  console.log("hi");
+
+  otbody = document.createElement('tbody');
+
+list.forEach((item)=>{
+  console.log("hi");
+  storageRef.child(item.fullPath).getDownloadURL().then((url)=>{
+    console.log(url);
+
+itemi = item.fullPath.replace("images/", "");
+itemii = itemi.replace("/"+item.name, "");
+console.log(itemii);
+    otr = document.createElement("tr");
+    otd1 =document.createElement("td");
+    otd2=document.createElement("td");
+    obutton = document.createElement("button");
+    obuttonword = document.createTextNode("Delete");
+    obutton.setAttribute("onclick", `deleti("${item.fullPath}", "${itemii}");`);
+    obutton.appendChild(obuttonword);
+    otd2.appendChild(obutton);
+
+    imageload = document.createElement("img");
+    imageload.setAttribute("src", url);
+    otd1.appendChild(imageload);
+    otr.appendChild(otd1);
+    otr.appendChild(otd2);
+    otbody.appendChild(otr);
+    document.getElementById("imagetable").appendChild(otbody);
+    //tr =  imagetable.getElementsByTagName('tr');
+
+  })
+})
+
+}
+
+const deleti = (files, data)=>{
+
+  firebase.auth().signInWithEmailAndPassword("assidiiq25@gmail.com", "assidiiq").catch(function(error) {
+  // Handle Errors here.
+   console.log(error);
+  // ...
+});
+let user = firebase.auth().currentUser;
+user =user.token;
+console.log(user);
+
+storageRef = firebase.storage().ref();
+
+storageRef.child(files).delete().then(()=>{
+  alert("file deleted succesfully")
+}).catch((e)=>{
+  console.log(e)
+});
+
+db= firebase.database();
+db.ref("/pictures/"+data).remove().then(()=>{
+  alert("info removed successfully");
+}).catch((e)=>{
+  console.log(e);
+})
+loadimagetable();
+}
+
+
+const deleteindeximage = (path)=>{
+  imagetable = document.getElementById("imagetable");
+let button= document.getElementById()
+
+
+}
+  if('serviceWorker' in navigator ){
+    window.addEventListener('load', async ()=>{
+      try{
+    registration = await navigator.serviceWorker.register('ser.js')
+
+    console.log(`service worker registered and service worker is ${registration.scope}`);
+}catch(e){
+  console.log(e);
+}})
+
+}else{console.log('no service worker')};
+
+function sharedata(){
+
+	FB.ui({
+		method: 'share',
+ href: 'https://functions-news.web.app',}, function(response){});
+}
+</script>
+
+
+
 </body>
 </html>

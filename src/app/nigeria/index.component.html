@@ -1,0 +1,89 @@
+
+
+<h1 class="headline">
+	Headline
+	</h1>
+<router-outlet></router-outlet>
+	<div class="newsblock" *ngFor="let datas of data.Mynews">
+		<div class="words">
+		<div class="mobile-source">
+		{{datas.source.name}}
+			</div>
+		<div class="title">
+			<a routerLink="{{'/nigeriaheadline/'+datas.title}}" routerLinkActive="active">{{datas.title}}</a>
+		</div>
+		<div class="sourceandtime">
+			<div class="source">
+				{{datas.source.name}}
+			</div>
+			<div class="time">
+			{{hoursiago(datas.publishedAt)}}
+			</div>
+		</div>
+		</div>
+		<div class="picture">
+			<div class="imghund">
+			<img src="{{datas.urlToImage}}">
+			</div>
+		</div>
+
+	</div>
+
+
+
+
+
+
+
+	<div class="newsblock">
+		<div class="words">
+		<div class="mobile-source">
+		Sahara Reporters
+			</div>
+		<div class="title">
+		Stupid Nigerian Government Orders Closure Of Market  Stupid Nigerian Government Ord
+		</div>
+		<div class="sourceandtime">
+			<div class="source">
+			Sahara Reporters
+			</div>
+			<div class="time">
+			5 hours ago
+			</div>
+		</div>
+		</div>
+		<div class="picture">
+			<div class="imghund">
+			<img src="french-fries-isolated-on-black-600w-306014546.jpg">
+			</div>
+		</div>
+
+	</div>
+
+
+
+
+  <div class="newsblock">
+		<div class="words">
+		<div class="mobile-source">
+		Sahara Reporters
+			</div>
+		<div class="title">
+		Stupid Nigerian Government Orders Closure Of Market Stupid Nigerian Government Ord
+		</div>
+		<div class="sourceandtime">
+			<div class="source">
+			Sahara Reporters
+			</div>
+			<div class="time">
+			5 hours ago
+			</div>
+		</div>
+		</div>
+		<div class="picture">
+			<div class="imghund">
+			<img src="french-fries-isolated-on-black-600w-306014546.jpg">
+			</div>
+		</div>
+
+	</div>

@@ -1,0 +1,21 @@
+<div class="newsblock" >
+<div class="topic" >
+{{data.title}}
+    </div>
+<div class="image">
+  <img src="{{data.urlToImage}}">
+  </div>
+<div class="slash">
+  {{data.publishedAt+" / "+data.title+" / "+data.source.name}}
+</div>
+<div class="body" id="body">
+{{""+display(data.description)}}
+</div>
+
+<div class="by"> Read more at
+<a href="{{data.url}}">{{data.source.name}}</a>
+  </div>
+  <div class="readmore">
+    
+    </div>
+</div>

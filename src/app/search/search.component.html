@@ -1,0 +1,34 @@
+
+
+<h1 class="headline">
+	Headline
+	</h1>
+<router-outlet></router-outlet>
+	<div class="newsblock" *ngFor="let datas of data.Mynews">
+		<div class="words">
+		<div class="mobile-source">
+		{{datas.source.title}}
+			</div>
+		<div class="title">
+
+			<a [routerLink]="['/search/'+datas.uri,{
+				filterby: this.parameters.filterby,
+				searchword: this.parameters.searchword
+			}]" routerLinkActive="active">{{datas.title}}</a>
+		</div>
+		<div class="sourceandtime">
+			<div class="source">
+				{{datas.source.title}}
+			</div>
+			<div class="time">
+			{{hoursiago(datas.dateTime)}}
+			</div>
+		</div>
+		</div>
+		<div class="picture">
+			<div class="imghund">
+			<img src="{{datas.image}}">
+			</div>
+		</div>
+
+	</div>

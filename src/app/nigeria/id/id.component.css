@@ -1,0 +1,62 @@
+.by{
+border-top: 1px solid #bbb;
+
+}
+.newsblock{
+  /*margin-top: 60px;*/
+  border-bottom: 1px solid #ddd;
+
+    padding: 15px;
+    margin-left:auto; margin-left: auto;
+  }
+.newsblock{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+overflow: hidden;
+width: 100%;
+box-sizing: border-box;
+}
+.topic, .image, .slash, .by, .body, .readmore{
+  margin-bottom: 17px;
+  width: 100%;
+  padding-top: 10px;
+
+}
+.body{
+font: 14px PT Sans,serif;
+    font-weight: 400;
+    font-size: 15px;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 28px;
+    text-transform: normal;
+    color: #606263;
+}
+.topic{
+    font-size: 20px;
+    font-weight: 600;
+    font-style: normal;
+    line-height: 30px;
+    color: #222323;
+    font-family: Cantarell, serif;
+}
+.image img{
+  max-width: 100%;
+}
+.slash{
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 13px;
+}
+@media only screen and (min-width: 1024px){
+.newswrapper{
+width: 50%;
+margin: auto;
+}
+.topic{
+    font-size: 24px;}
+    .body{
+
+        font-size: 17px;}
+}

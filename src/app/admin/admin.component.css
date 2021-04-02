@@ -1,0 +1,18 @@
+.tablediv{
+max-width: 100%;
+overflow-x : scroll;
+}
+ td, th{
+  border: 2px solid #bbb;
+  border-collapse: collapse;
+}
+
+td img{
+max-width: 50%;
+height: auto;
+
+}
+th, td{
+  padding: 10px;
+  text-align: center;
+}
