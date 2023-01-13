@@ -1,4 +1,4 @@
-# Ss
+This project contains angular framework codes to transform response received from newsregistry API to responsive and quality news website with search features and news categories 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.21.
 
